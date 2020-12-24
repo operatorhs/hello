@@ -1,0 +1,114 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+
+.lt-20 { // laout 左边的宽度
+  margin-left: 20px;
+}
+.img3-2, .img192-50 { // 图片3:2
+  cursor: pointer;
+  margin-top: 10px;
+  width: 78px;
+  height: 52px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .1s ease;
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.img192-50 {
+  width: 192px;
+  height: 50px;
+}
+
+.d-f-s, .d-f-b, .d-f-c, .d-f-align, .d-f-d-cloumn {
+  display: flex;
+}
+
+.d-f-align {
+  align-items: center;
+}
+
+.d-f-b {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d-f-c {
+  justify-content: center;
+  align-items: center;
+}
+.d-f-d-cloumn {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  display: block;
+}
