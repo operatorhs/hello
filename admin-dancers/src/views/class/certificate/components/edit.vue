@@ -3,9 +3,9 @@
     <el-form-item label="证书名称">
       <el-input v-model="editForm.name" placeholder="请输入证书名称" size="mini" clearable />
     </el-form-item>
-    <!-- <el-form-item label="证书编码">
-      <el-input v-model="editForm.code" placeholder="请输入证书名称" size="mini" clearable />
-    </el-form-item> -->
+    <el-form-item label="证书介绍">
+      <el-input v-model="editForm.CertificateText" type="textarea" placeholder="证书介绍" size="mini" clearable />
+    </el-form-item>
     <el-form-item label="上传证书模版">
       <fileButton @fileURL="getCoursePic" />
       <!-- <el-alert
@@ -17,7 +17,7 @@
       <div class="left">
         <img class="bg" :src="BackgroundImgUrl" :alt="PROJECT_TITLE">
         <h2 class="name" :style="{ top: -memberNameY + 'px', left: memberNameX + 'px' }">{{ memberName }}</h2>
-        <div class="asii" :style="{ top: -PhotoY + 'px', left: PhotoX + 'px' }">{{ code }}</div>
+        <div class="asii" :style="{ top: -PhotoY + 'px', left: PhotoX + 'px' }">{{ PhotoUrl }}</div>
         <img class="code" :src="qrCodeUrl" :style="{ top: -qrCodeY + 'px', left: qrCodeX + 'px' }" :alt="PROJECT_TITLE">
       </div>
       <div class="right">
@@ -36,7 +36,7 @@
           Y:<el-input v-model="qrCodeY" type="number" placeholder="请调整左右的位置" size="mini" clearable />
         </el-form-item>
         <el-form-item label="请调整编码">
-          <el-input v-model="code" placeholder="请输入课程名称" size="mini" clearable />
+          <el-input v-model="PhotoUrl" placeholder="请输入课程名称" size="mini" clearable />
           X:<el-input v-model="PhotoX" type="number" placeholder="请调整上下的位置" size="mini" clearable />
           Y:<el-input v-model="PhotoY" type="number" placeholder="请调整左右的位置" size="mini" clearable />
         </el-form-item>
@@ -74,13 +74,13 @@ export default {
     return {
       courseImg: '',
       memberName: '测试姓名',
-      memberNameX: 11,
-      memberNameY: 304,
+      memberNameX: -11,
+      memberNameY: -304,
       qrCodeX: 0,
       qrCodeY: 0,
       PhotoX: 0,
       PhotoY: 0,
-      code: ''
+      PhotoUrl: ''
     }
   },
   computed: {
@@ -101,13 +101,14 @@ export default {
   },
   methods: {
     inintPosition() {
-      this.qrCodeX = this.editForm.qrCodeX || 20
-      this.qrCodeY = this.editForm.qrCodeY || 700
-      this.memberNameX = this.editForm.memberNameX || 44
-      this.memberNameY = this.editForm.memberNameY || 348
+      this.qrCodeX = this.editForm.qrCodeX || 108
+      this.qrCodeY = this.editForm.qrCodeY || -578
+      this.memberNameX = this.editForm.memberNameX || 56
+      this.memberNameY = this.editForm.memberNameY || -300
       this.memberName = this.editForm.memberName || '测试姓名'
-      this.PhotoX = this.editForm.PhotoX || 440
-      this.PhotoY = this.editForm.PhotoY || 0
+      this.PhotoX = this.editForm.PhotoX || 100
+      this.PhotoY = this.editForm.PhotoY || -645
+      this.PhotoUrl = this.editForm.PhotoUrl
     },
     handleSubmit() {
       this.$emit('handleIsLoading')
@@ -117,6 +118,7 @@ export default {
       this.editForm.qrCodeY = this.qrCodeY
       this.editForm.PhotoX = this.PhotoX
       this.editForm.PhotoY = this.PhotoY
+      this.editForm.PhotoUrl = this.PhotoUrl
       this.$emit('sumbmitForm', this.editForm)
     },
     proviewHanlde(url) {
@@ -159,7 +161,6 @@ export default {
     .asii {
       font-size: 12px;
       width: 147px;
-      height: 252px;
       position: absolute;
     }
     .name {

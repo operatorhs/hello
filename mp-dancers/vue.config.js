@@ -1,12 +1,4 @@
 module.exports = {
-  plugins: [
-    [
-      "import",
-      {
-        libraryName: "vant",
-        libraryDirectory: "es",
-        style: true
-      }
-    ]
-  ]
+  outputDir: 'dist',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/'
 };

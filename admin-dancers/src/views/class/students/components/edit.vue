@@ -3,9 +3,6 @@
     <el-form-item label="姓名">
       <el-input v-model="editForm.name" placeholder="请输入姓名" size="mini" clearable />
     </el-form-item>
-    <el-form-item label="证书编号">
-      <el-input v-model="editForm.CertificateIdentifier" placeholder="请输入证书编号" size="mini" clearable />
-    </el-form-item>
     <el-form-item label="报名时间">
       <el-date-picker v-model="editForm.registrationTime" type="date" size="mini" placeholder="报名时间" style="width: 174px;" />
     </el-form-item>
@@ -37,6 +34,12 @@
           :value="item.classCertificateID"
         />
       </el-select>
+    </el-form-item>
+    <el-form-item label="证书编号">
+      <el-input v-model="editForm.CertificateIdentifier" placeholder="请输入证书编号" size="mini" clearable />
+    </el-form-item>
+    <el-form-item label="证书说明">
+      <el-input v-model="editForm.CertificateText" type="textarea" placeholder="请输入证书说明" size="mini" clearable />
     </el-form-item>
     <el-form-item v-show="certificateUrl" label="证书预览">
       <div class="img3-2">
@@ -148,6 +151,12 @@ export default {
     },
     handleChangeCertificate(e) {
       console.log(e)
+      this.certificateList.forEach(item => {
+        if (item.classCertificateID === e) {
+          this.editForm.CertificateIdentifier = item.PhotoUrl // 这里用PhotoUrl 代替证书编号
+          this.editForm.CertificateText = item.CertificateText
+        }
+      })
     },
     createdCertificateHandle(classCertificateUrl) {
       this.$emit('handleIsLoading')

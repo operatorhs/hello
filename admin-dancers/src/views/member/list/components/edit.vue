@@ -18,6 +18,9 @@
     <el-form-item label="姓名">
       <el-input v-model="editForm.name" placeholder="请输入姓名" size="mini" clearable />
     </el-form-item>
+    <el-form-item label="手机号">
+      <el-input v-model="editForm.mobileNu" placeholder="请输入手机号码" size="mini" clearable />
+    </el-form-item>
     <el-form-item label="性别">
       <el-select v-model="editForm.Gender" size="mini" placeholder="请选择性别" clearable>
         <el-option label="男" value="男" />
@@ -35,7 +38,7 @@
       <el-input v-model="editForm.nativePlace" placeholder="请输入籍贯" size="mini" clearable />
     </el-form-item>
     <el-form-item label="身高">
-      <el-input v-model="editForm.height" placeholder="请输入身高" size="mini" clearable />
+      <el-input v-model="editForm.height" type="number" placeholder="请输入身高（cm）" size="mini" clearable />
     </el-form-item>
     <el-form-item label="微信号">
       <el-input v-model="editForm.wechatNumber" placeholder="请输入微信号码" size="mini" clearable />
@@ -82,9 +85,6 @@
     </el-form-item>
     <el-form-item label="担任职务">
       <el-input v-model="editForm.post" placeholder="请输入职务" size="mini" clearable />
-    </el-form-item>
-    <el-form-item label="手机号">
-      <el-input v-model="editForm.mobileNu" placeholder="请输入手机号码" size="mini" clearable />
     </el-form-item>
     <el-form-item label="邮箱">
       <el-input v-model="editForm.email" placeholder="请输入邮箱" size="mini" clearable />

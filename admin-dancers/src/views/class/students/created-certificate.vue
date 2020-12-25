@@ -15,6 +15,7 @@
       </div>
       <img class="zh-code" :src="codeUrl" style="width: 260px; height: 260px" alt="">
       <img class="zh-code" :src="codeUrl" style="width: 52px; height: 52px; z-index: 100" alt="">
+      <span>{{ CertificateForm.CertificateIdentifier }}</span>
     </div>
     <!-- <img :src="testUrl" alt=""> -->
   </div>
@@ -167,7 +168,7 @@ export default {
           const x = name.length === 3 ? memberNameX * 5 + 300 : name.length === 2 ? memberNameX * 5 + 340 : name.length === 4 ? memberNameX * 5 + 260 : memberNameX * 5 + 220
           ctx.fillText(name, x, -memberNameY * 5 + 140)
           ctx.font = '36px Arial'
-          ctx.fillStyle = '#231815'
+          ctx.fillStyle = '#333'
           ctx.fillText(CertificateIdentifier, PhotoX * 5 + 4, -PhotoY * 5 + 36)
           this.testUrl = canvas.toDataURL()
           const bytes = window.atob(this.testUrl.split(',')[1])
@@ -226,7 +227,9 @@ export default {
     height: 40px;
     line-height: 40px;
     font-size: 28px;
+    font-weight: 500;
     text-align: right;
+    color: #333;
     font-family: "STXingkai";
     position: absolute;
     top: 348px;

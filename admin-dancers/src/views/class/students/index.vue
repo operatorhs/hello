@@ -236,7 +236,6 @@ export default {
       if (!this.tableLoading) {
         this.tableLoading = true
       }
-      console.log('我执行了 批量倒入成功')
       this.searchForm.limit = this.limit
       this.searchForm.page = this.page
       this.searchForm.classID = this.classID

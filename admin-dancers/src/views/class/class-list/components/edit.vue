@@ -55,55 +55,11 @@
       </el-select>
     </el-form-item>
     <el-form-item label="地址">
-      <el-input v-model="editForm.address" placeholder="请输入录制说明" size="mini" clearable />
+      <el-input v-model="editForm.address" placeholder="请填写地址" size="mini" clearable />
     </el-form-item>
     <el-form-item label="班级简介">
-      <el-input v-model="editForm.introduce" type="textarea" placeholder="请输入录制说明" size="mini" clearable />
+      <el-input v-model="editForm.introduce" type="textarea" placeholder="请输入班级简介" size="mini" clearable />
     </el-form-item>
-    <!-- <el-form-item label="讲师">
-      <el-select v-model="editForm.courseLecturerID" size="mini" placeholder="请选择课程类型" clearable>
-        <el-option
-          v-for="item in lecturerLists"
-          :key="item.courseLecturerID"
-          :label="item.name"
-          :value="item.courseLecturerID"
-        />
-      </el-select>
-    </el-form-item>
-    <el-form-item label="课程类型">
-      <el-select v-model="editForm.courseTypeID" size="mini" placeholder="请选择课程类型" clearable>
-        <el-option
-          v-for="item in courseTypeList"
-          :key="item.courseTypeID"
-          :label="item.name"
-          :value="item.courseTypeID"
-        />
-      </el-select>
-    </el-form-item>
-    <el-form-item label="课程图片">
-      <fileButton @fileURL="getCoursePic" />
-      <div v-show="imagePath" class="img3-2">
-        <img :src="imagePath" :alt="PROJECT_TITLE" @click="proviewHanlde(imagePath)">
-      </div>
-    </el-form-item>
-    <el-form-item label="课程说明">
-      <el-input v-model="editForm.courseDescribe" type="textarea" placeholder="请输入课程名称" size="mini" clearable />
-    </el-form-item>
-    <el-form-item label="总时长">
-      <el-input v-model="editForm.courseDuration" placeholder="请输入数字（单位秒）" type="number" size="mini" clearable />
-    </el-form-item>
-    <el-form-item label="状态">
-      <el-input v-model="editForm.status" size="mini" clearable />
-    </el-form-item>
-    <el-form-item v-show="isEdit" label="生成时间">
-      <span>{{ editForm.createTime | filterDate }}</span>
-    </el-form-item>
-    <el-form-item v-show="isEdit" label="修改时间">
-      <span>{{ editForm.updateTime | filterDate }}</span>
-    </el-form-item>
-    <el-form-item label="modifyInfo">
-      <el-input v-model="editForm.modifyInfo" size="mini" clearable />
-    </el-form-item> -->
     <el-form-item>
       <el-button type="primary" size="mini" :loading="isLoading" @click="handleSubmit">提交</el-button>
     </el-form-item>
@@ -111,11 +67,11 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import fileButton from '@/components/FileButton'
+// import fileButton from '@/components/FileButton'
 export default {
-  components: {
-    fileButton
-  },
+  // components: {
+  //   fileButton
+  // },
   props: {
     isLoading: {
       type: Boolean,
